@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="公告編輯 Notice Editor 提供專業法院公告刊登、法律公告報紙刊登服務。快速、合法、安心完成公告流程，熟悉法院公告格式，全程協助代辦。">
+    <meta name="keywords" content="法院公告刊登, 法律公告代辦, 報紙公告刊登, 法院公告流程, 公告編輯 Notice Editor, 法院公告服務, 公告代辦">
+    <title>法院公告刊登｜專業代辦服務 - 公告編輯 Notice Editor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            color: #1e293b;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #1e40af;
+            --gold: #d4af37;
+            --gold-light: #f59e0b;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --bg-light: #f8fafc;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><path d="M0 50 L50 0 L100 50 L50 100 Z" fill="rgba(255,255,255,0.03)"/></svg>') repeat;
+            opacity: 0.4;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: #c9a030;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-line {
+            background: #06C755;
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-line:hover {
+            background: #05b34c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(6, 199, 85, 0.3);
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--text-gray);
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(30, 58, 138, 0.1);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 32px;
+            color: #ffffff;
+        }
+
+        .advantage-item {
+            background: #ffffff;
+            border-left: 4px solid var(--gold);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .advantage-item:hover {
+            box-shadow: 0 8px 24px rgba(30, 58, 138, 0.15);
+            transform: translateX(8px);
+        }
+
+        .step-item {
+            position: relative;
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .step-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.1);
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--gold);
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-blue);
+            background: #f8fafc;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f1f5f9;
+        }
+
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px 24px;
+            max-height: 300px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+            color: var(--gold);
+            font-size: 20px;
+        }
+
+        .contact-form {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 40px;
+            height: 100%;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+            }
+
+            .hero-gradient h1 {
+                font-size: 32px !important;
+            }
+
+            .hero-gradient p {
+                font-size: 16px !important;
+            }
+
+            .btn-primary,
+            .btn-line {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .service-card,
+            .step-item {
+                padding: 24px;
+            }
+
+            .contact-form {
+                padding: 24px;
+            }
+        }
+
+        .kuse-branding {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #64748b;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px 16px;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .kuse-branding:hover {
+            color: #1e3a8a;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .kuse-branding svg {
+            height: 1.2em;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-gradient" style="padding: 120px 20px; position: relative; z-index: 1;">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 2;">
+            <div style="display: inline-block; background: rgba(212, 175, 55, 0.2); color: #ffffff; padding: 8px 20px; border-radius: 24px; font-size: 14px; font-weight: 600; margin-bottom: 24px;">
+                公告編輯 Notice Editor
+            </div>
+            <h1 style="font-size: 48px; font-weight: 700; color: #ffffff; margin-bottom: 24px; line-height: 1.3;">
+                法院公告刊登｜專業代辦服務
+            </h1>
+            <p style="font-size: 20px; color: rgba(255, 255, 255, 0.9); margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                快速、合法、安心完成公告流程
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="#contact" class="btn-primary">立即諮詢</a>
+                <a href="#contact" class="btn-line">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.771.039 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+                    </svg>
+                    加入 LINE
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section style="padding: 100px 20px; background: #f8fafc;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">我們提供的服務</h2>
+            <p class="section-subtitle">專業、快速、可信賴的法院公告刊登解決方案</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3 style="font-size: 20px; font-weight: 600; color: var(--primary-blue); margin-bottom: 12px;">法院公告刊登</h3>
+                    <p style="color: var(--text-gray); line-height: 1.7;">協助您完成各類法院公告刊登需求，確保符合法律規範</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📰</div>
+                    <h3 style="font-size: 20px; font-weight: 600; color: var(--primary-blue); margin-bottom: 12px;">法律公告報紙刊登</h3>
+                    <p style="color: var(--text-gray); line-height: 1.7;">提供合法報紙刊登管道，確保公告效力</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✍️</div>
+                    <h3 style="font-size: 20px; font-weight: 600; color: var(--primary-blue); margin-bottom: 12px;">公告文字編輯與審稿</h3>
+                    <p style="color: var(--text-gray); line-height: 1.7;">專業編輯團隊協助您撰寫及審核公告內容</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📝</div>
+                    <h3 style="font-size: 20px; font-weight: 600; color: var(--primary-blue); margin-bottom: 12px;">刊登流程代辦與文件確認</h3>
+                    <p style="color: var(--text-gray); line-height: 1.7;">全程協助處理繁瑣流程，確保文件完整正確</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🗺️</div>
+                    <h3 style="font-size: 20px; font-weight: 600; color: var(--primary-blue); margin-bottom: 12px;">區域公告發布管理</h3>
+                    <p style="color: var(--text-gray); line-height: 1.7;">提供北部、中部、南部區域公告發布服務</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section style="padding: 100px 20px; background: #ffffff;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">為什麼選擇我們</h2>
+            <p class="section-subtitle">專業團隊為您提供最完善的公告刊登服務</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                <div class="advantage-item">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #ffffff; flex-shrink: 0;">✓</div>
+                        <h3 style="font-size: 18px; font-weight: 600; color: var(--primary-blue);">專業公告編輯</h3>
+                    </div>
+                    <p style="color: var(--text-gray); line-height: 1.7; padding-left: 64px;">Notice Editor 團隊具備豐富的公告編輯經驗</p>
+                </div>
+                <div class="advantage-item">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #ffffff; flex-shrink: 0;">✓</div>
+                        <h3 style="font-size: 18px; font-weight: 600; color: var(--primary-blue);">熟悉法院公告格式</h3>
+                    </div>
+                    <p style="color: var(--text-gray); line-height: 1.7; padding-left: 64px;">深入了解各類法院公告的格式要求與規範</p>
+                </div>
+                <div class="advantage-item">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #ffffff; flex-shrink: 0;">✓</div>
+                        <h3 style="font-size: 18px; font-weight: 600; color: var(--primary-blue);">快速回覆與報價</h3>
+                    </div>
+                    <p style="color: var(--text-gray); line-height: 1.7; padding-left: 64px;">即時回應您的需求，提供透明合理的報價</p>
+                </div>
+                <div class="advantage-item">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #ffffff; flex-shrink: 0;">✓</div>
+                        <h3 style="font-size: 18px; font-weight: 600; color: var(--primary-blue);">合法報紙刊登管道</h3>
+                    </div>
+                    <p style="color: var(--text-gray); line-height: 1.7; padding-left: 64px;">與合法報社合作，確保公告刊登效力</p>
+                </div>
+                <div class="advantage-item">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #ffffff; flex-shrink: 0;">✓</div>
+                        <h3 style="font-size: 18px; font-weight: 600; color: var(--primary-blue);">全程協助流程透明</h3>
+                    </div>
+                    <p style="color: var(--text-gray); line-height: 1.7; padding-left: 64px;">從諮詢到完成刊登，每個步驟清楚明確</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section style="padding: 100px 20px; background: #f8fafc;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">服務流程</h2>
+            <p class="section-subtitle">簡單四步驟，輕鬆完成公告刊登</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px;">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3 style="font-size: 20px; font-weight: 600; color: var(--primary-blue); margin-bottom: 12px;">諮詢需求</h3>
+                    <p style="color: var(--text-gray); line-height: 1.7;">告訴我們您的公告刊登需求</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3 style="font-size: 20px; font-weight: 600; color: var(--primary-blue); margin-bottom: 12px;">提供資料</h3>
+                    <p style="color: var(--text-gray); line-height: 1.7;">準備相關文件與公告內容</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3 style="font-size: 20px; font-weight: 600; color: var(--primary-blue); margin-bottom: 12px;">編輯確認</h3>
+                    <p style="color: var(--text-gray); line-height: 1.7;">專業編輯審核並與您確認內容</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3 style="font-size: 20px; font-weight: 600; color: var(--primary-blue); margin-bottom: 12px;">完成刊登</h3>
+                    <p style="color: var(--text-gray); line-height: 1.7;">依約定時間完成公告刊登</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="padding: 100px 20px; background: #ffffff;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <h2 class="section-title">常見問題</h2>
+            <p class="section-subtitle">解答您對法院公告刊登的疑問</p>
+            <div id="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>刊登需要多久？</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        一般工作天 3-5 天，急件可加速處理，實際時間依法院與報社作業時間而定。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>費用如何計算？</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        依公告字數、刊登報紙、刊登天數計算，提供透明報價，無隱藏費用。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>需要準備哪些文件？</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        基本需提供：公告內容、當事人資料、法院文件等，我們會協助您確認所需文件。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>可以代為修改公告內容嗎？</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        可以，我們提供專業公告文字編輯與審稿服務，確保格式正確、內容完整。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="padding: 100px 20px; background: #f8fafc;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">聯絡我們</h2>
+            <p class="section-subtitle">立即諮詢，讓我們協助您完成公告刊登</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
+                <div class="contact-info">
+                    <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 32px;">聯絡資訊</h3>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <div style="font-size: 14px; opacity: 0.8; margin-bottom: 4px;">聯絡電話</div>
+                            <div style="font-size: 18px; font-weight: 600;">請透過 LINE 或表單聯繫</div>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <div style="font-size: 14px; opacity: 0.8; margin-bottom: 4px;">電子郵件</div>
+                            <div style="font-size: 18px; font-weight: 600;">請透過表單提供您的信箱</div>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <div style="font-size: 14px; opacity: 0.8; margin-bottom: 4px;">服務時間</div>
+                            <div style="font-size: 18px; font-weight: 600;">週一至週五 09:00-18:00</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 32px;">
+                        <a href="#contact" class="btn-line" style="width: 100%; justify-content: center;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.771.039 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+                            </svg>
+                            加入 LINE 官方帳號
+                        </a>
+                    </div>
+                    <div style="margin-top: 24px; text-align: center;">
+                        <div class="qr-placeholder" style="margin: 0 auto;">
+                            LINE QR Code<br>預留區塊
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 style="font-size: 24px; font-weight: 600; color: var(--primary-blue); margin-bottom: 24px;">諮詢表單</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label class="form-label">姓名 *</label>
+                            <input type="text" class="form-input" id="name" required placeholder="請輸入您的姓名">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">聯絡電話 *</label>
+                            <input type="tel" class="form-input" id="phone" required placeholder="請輸入您的聯絡電話">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">電子郵件 *</label>
+                            <input type="email" class="form-input" id="email" required placeholder="請輸入您的電子郵件">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">諮詢內容 *</label>
+                            <textarea class="form-textarea" id="message" required placeholder="請描述您的公告刊登需求"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; display: flex;">送出諮詢</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--primary-blue); color: #ffffff; padding: 60px 20px 30px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+                <div>
+                    <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 16px;">公告編輯 Notice Editor</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.7;">提供專業、快速、可信賴的法院公告刊登服務</p>
+                </div>
+                <div>
+                    <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 16px;">服務項目</h4>
+                    <ul style="list-style: none; color: rgba(255, 255, 255, 0.8); line-height: 2;">
+                        <li>法院公告刊登</li>
+                        <li>法律公告報紙刊登</li>
+                        <li>公告文字編輯與審稿</li>
+                        <li>刊登流程代辦</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 16px;">快速連結</h4>
+                    <ul style="list-style: none; color: rgba(255, 255, 255, 0.8); line-height: 2;">
+                        <li><a href="#contact" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">聯絡我們</a></li>
+                        <li><a href="#" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">服務流程</a></li>
+                        <li><a href="#" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">常見問題</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 30px; text-align: center; color: rgba(255, 255, 255, 0.6); font-size: 14px;">
+                <p>© 2024 公告編輯 Notice Editor. 版權所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Kuse Branding -->
+    <a href="https://kuse.ai" target="_blank" class="kuse-branding">
+        made with
+        <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg"><path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"/><path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"/></svg>
+    </a>
+
+    <script>
+        const faqItems = document.querySelectorAll(`.faq-item`);
+        faqItems.forEach(item => {
+            const question = item.querySelector(`.faq-question`);
+            question.addEventListener(`click`, () => {
+                const isActive = item.classList.contains(`active`);
+                faqItems.forEach(i => i.classList.remove(`active`));
+                if (!isActive) {
+                    item.classList.add(`active`);
+                }
+            });
+        });
+
+        const contactForm = document.getElementById(`contact-form`);
+        contactForm.addEventListener(`submit`, (e) => {
+            e.preventDefault();
+            const name = document.getElementById(`name`).value;
+            const phone = document.getElementById(`phone`).value;
+            const email = document.getElementById(`email`).value;
+            const message = document.getElementById(`message`).value;
+
+            if (!name || !phone || !email || !message) {
+                alert(`請填寫所有必填欄位`);
+                return;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert(`請輸入有效的電子郵件地址`);
+                return;
+            }
+
+            const phonePattern = /^[\d\-\+\(\)\s]+$/;
+            if (!phonePattern.test(phone)) {
+                alert(`請輸入有效的電話號碼`);
+                return;
+            }
+
+            alert(`感謝您的諮詢！我們會盡快與您聯繫。`);
+            contactForm.reset();
+        });
+
+        document.querySelectorAll(`a[href^="#"]`).forEach(anchor => {
+            anchor.addEventListener(`click`, function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute(`href`));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: `smooth`,
+                        block: `start`
+                    });
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+</body>
+</html>
